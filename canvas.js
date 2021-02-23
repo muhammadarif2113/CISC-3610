@@ -24,7 +24,7 @@ function animate(){ //animate function for water
 
     c.beginPath(); 
     c.moveTo(0, 1000); //this creats a line that represents the ground 
-    c.lineTo(1000, 1000); 
+    c.lineTo(canvas.width, 1000); 
     c.lineWidth = 20;
     c.strokeStyle = '#a97e39'; 
     c.stroke(); 
