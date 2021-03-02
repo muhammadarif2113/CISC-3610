@@ -15,6 +15,7 @@ function animate(){ //animate function for water
     c.beginPath(); 
     c.fillRect(0, 1000, sqA, 100);
     c.fillRect(0, 1100, sqA, 100);
+    c.fillRect(0, 1200, sqA, 100); 
 
     if (sqA > innerWidth){
         sqDX = -sqDX; 
