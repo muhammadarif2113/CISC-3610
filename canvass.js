@@ -22,7 +22,7 @@ var ctx = canvas.getContext('2d');
         var quantityNum = obj.quantity; 
 
         ctx.fillStyle = obj.color; //so each fruit has its respective color according ot the array 
-        ctx.fillRect(x, 1630, 100, y); 
+        ctx.fillRect(x, 1230, 100, y); 
         
         ctx.font = "20px Arial"; 
         ctx.fillStyle = "black"; 
