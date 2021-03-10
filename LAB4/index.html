@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style> 
+            textarea{
+            resize: none;
+            }
+        </style> 
+
+    <title>Form Lab</title>
+    </head>
+
+<body>
+    <h1><center><u>Form to Take Notes</center> </u></h1> <br> 
+    <form>  
+        <h2><center> Title: <input type="text" id = "titleName" name="titleName" maxlength="40"  required></center></h2> 
+        <center><textarea id ="textarea1" name="textarea1" rows="10" columns="80" oninput="saveit()"> </textarea> </center>
+        <input type = "button" id="button" onclick ="saveit()" value = "Save"> 
+        <input type ="button" id = "clear" onclick="clearit()" value="Clear"/> 
+    </form> 
+</body>
+
+<script>
+    var one = document.getElementById("titleName").value; 
+        var two = document.getElementById("textarea1").value; 
+    function doFirst(){ 
+        var button = document.getElementById("button"); 
+        addEventListener("click", saveit, false);  
+    }
+    function saveit(){
+        var one = document.getElementById("titleName").value; 
+        var two = document.getElementById("textarea1").value; 
+        localStorage.setItem(one, two); 
+     //   display(two); 
+     //   display(one); 
+    }
+        
+       function clearit(){
+           window.localStorage.clear(); 
+       }
+
+    
+       function display(two){
+        var text = document.getElementById("textarea1");//so what is saved is outputted in same place
+        var accessInfo = localStorage.getItem(two);
+
+        text.innerHTML =  two; 
+
+    }
+   /* function display(two){
+        var text = document.getElementById("textarea1");//so what is saved is outputted in same place
+        var accessInfo = localStorage.getItem(one);
+
+        text.innerHTML = "output: " + one; 
+    }
+    function display(one){
+        var text2 = document.getElementById("titleName"); 
+        var two = sessionStorage.getItem(one); 
+
+        text2.innerHTML = "title: " + two; 
+    }*/
+
+
+    window.addEventListener("load", doFirst, false); 
+    window.addEventListener("click", clearit, false); 
+
+
+</script> 
+</html>
