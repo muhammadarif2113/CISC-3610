@@ -3,14 +3,27 @@
     <head>
         <style> 
             textarea{
-            resize: none;
+            
+            width: 500px;    
+            border-style: dashed;  
+            background-color: antiquewhite;
             }
+            div{
+                background-color: beige;
+                border-style: double;
+            }
+            input{
+                background-color: burlywood;
+                font-size: larger;
+            }
+
         </style> 
 
     <title>Form Lab</title>
     </head>
 
 <body>
+    <div id = "divv">
     <h1><center><u>Form to Take Notes</center> </u></h1> <br> 
     <form>  
         <h2><center> Title: <input type="text" id = "titleName" name="titleName" maxlength="40"  required></center></h2> 
@@ -18,6 +31,7 @@
         <input type = "button" id="button" onclick ="saveit()" value = "Save"> 
         <input type ="button" id = "clear" onclick="clearit()" value="Clear"/> 
     </form> 
+</div>
 </body>
 
 <script>
