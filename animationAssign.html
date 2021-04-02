@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Animation Assigment </title>
+    </head>
+    <div class="bubble">
+        <canvas id="canvas1" class="bubbleborder" width="240" height="200" >
+        </canvas>
+        <div class="bubbletext">
+        </div>
+        </div>
+        <style>
+            .bubble
+{
+  position:relative;
+  background:green;
+  float:left;     /* because the image at left */
+}
+.bubbleborder
+{
+  position:absolute;
+  top:0;
+  left:0;
+}
+.bubbletext
+{
+  position:absolute;
+  top:0;
+  left:0;
+  width:220px;
+  height:200px;
+  padding:76px 8px 8px 8px;
+  text-align:center;
+}
+        </style>
+
+    <body>
+        <h1> Race to the Finish Line!!</h1>
+        <h3> (Refresh for different outcomes) </h3>
+
+        <canvas id='canvas'></canvas>
+        <script>
+            document.body.style.backgroundColor = "lightcoral";
+
+            var canWidth = 800; 
+            var canHeight = 300; 
+
+            var x = 0;  
+            var y = 0; 
+
+            var z =0; //for second racer 
+
+            var srcX; 
+            var scrY;  
+
+            var sheetWidth = 864; //spritsheet size 
+            var sheetHeight = 290; 
+
+            var cols = 8; //spritesheet rows and columns 
+            var rows = 2; 
+
+            var frame = 8; //8 different sprites for each row 
+
+            var width = sheetWidth / cols; 
+            var height = sheetHeight / rows; 
+
+            var currentFrame =0; 
+
+            var character = new Image(); 
+            character.src = "/home/moe/Desktop/Multimedia/character.png"; 
+
+            var canvas = document.getElementById('canvas'); 
+            canvas.width = canWidth; 
+            canvas.height = canHeight; 
+
+            var ctx = canvas.getContext('2d'); 
+
+            ctx.strokeStyle = 'black'; //first finish line 
+            ctx.lineWidth = 2; 
+            ctx.beginPath(); 
+            ctx.moveTo(30, 150); 
+            ctx.lineTo(600, 150); 
+            ctx.stroke(); 
+            ctx.closePath(); 
+            ctx.font = "10px Arial"; 
+            ctx.fillText ("Start", 0, 152); 
+
+            ctx.font = "10px Arial"; 
+            ctx.fillText ("Finish Line", 600, 150); 
+
+            ctx.strokeStyle = 'black'; //second finish line 
+            ctx.lineWidth = 2; 
+            ctx.beginPath(); 
+            ctx.moveTo(30, 298); 
+            ctx.lineTo(600, 298); 
+            ctx.stroke(); 
+            ctx.closePath(); 
+
+
+            ctx.font = "10px Arial"; 
+            ctx.fillText ("Finish Line", 600, 298); 
+
+            
+            function updateFrame(){
+                ctx.clearRect(x, y, width, height); 
+                currentFrame = ++currentFrame % cols; 
+                srcX = currentFrame * width; 
+                srcY = 0; 
+                x += Math.floor(Math.random() * 10) +1; //random speed for first racer 
+            }
+            function updateFrame2(){
+                ctx.clearRect(z, 152, width, height);
+                currentFrame = ++currentFrame % cols; 
+                srcX = currentFrame * width; 
+                srcY = 0;
+                z += Math.floor(Math.random() * 10) +1; //random speed for second racer 
+            }
+            function winner(){
+                if (z> x){
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText ("YESSS, I WON", 650, 250); 
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText ("NOOOO, I LOST", 650, 120); 
+                } else if (z<x){
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText ("YESSS, I WON", 650, 120); 
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText ("NOOOO, I LOST", 650, 250); 
+                } else {
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText ("Tied", 650, 250); 
+                    ctx.font = "20px Arial"; 
+                    ctx.fillText ("Tied", 650, 120);  
+                }
+            }
+            function drawImage(){
+                updateFrame(); 
+                ctx.drawImage(character, srcX, srcY, width, height, x, y, width, height); //first racer 
+                drawBubble(ctx, 650, 60, 150, 90, 5);
+                updateFrame2(); 
+                ctx.drawImage(character, srcX, srcY, width, height, z, 152, width, height); //second racer 
+                drawBubble(ctx, 650, 200, 150, 100, 5);
+            //    winner(); 
+            }
+
+            setInterval(function(){
+                drawImage(); 
+                winner(); 
+            }, 100);
+
+            function drawBubble(ctx, x, y, w, h, radius){ //get the shape of speech bubble 
+                var r = x + w;
+                var b = y + h;
+                ctx.beginPath();
+                ctx.strokeStyle="black";
+                ctx.lineWidth="2";
+                ctx.moveTo(x+radius, y);
+                ctx.lineTo(x+radius/2, y-10);
+                ctx.lineTo(x+radius * 2, y);
+                ctx.lineTo(r-radius, y);
+                ctx.quadraticCurveTo(r, y, r, y+radius);
+                ctx.lineTo(r, y+h-radius);
+                ctx.quadraticCurveTo(r, b, r-radius, b);
+                ctx.lineTo(x+radius, b);
+                ctx.quadraticCurveTo(x, b, x, b-radius);
+                ctx.lineTo(x, y+radius);
+                ctx.quadraticCurveTo(x, y, x+radius, y);
+                ctx.stroke();
+            }
+
+        </script>
+    </body>
+</html>
