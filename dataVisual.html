@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <div>
+        <div style= 'width:50%'></div>
+        <canvas id= "canvas" width = "1" height="1"> </canvas>
+    </div> 
+    <div style = 'width:50%'></div>
+    <canvas id="canvas2" width="1" height="1"> </canvas>
+    </div> 
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"> </script> 
+    <script> 
+    new Chart(document.getElementById("canvas"), {
+        type: 'bar', 
+        data:{
+            labels: ["Brooklyn", "Queens", "Manhattan", "Staten Island", "Bronx"], 
+            datasets: [ 
+                {
+                    label: "2020 NYC Population", 
+                    backgroundColor: ["#00FFFF", "#0000FF", "#A52A2A", "#7FFF00", "#7FFFD4"], 
+                    data: [2648452, 2330295, 1638281, 487155, 1446788]
+                }
+            ]
+        }, 
+        options: {
+            legend: { display: false },
+            title: {
+                display: true, 
+                text: 'NYC 2020 Population By Bourough'
+            } 
+        }
+    }); 
+    new Chart(document.getElementById("canvas2"), {
+        type: 'doughnut', 
+        data:{
+            labels: ["Brooklyn", "Queens", "Manhattan", "Staten Island", "Bronx"], 
+            datasets: [ 
+                {
+                    label: "2020 NYC Population", 
+                    backgroundColor: ["#00FFFF", "#0000FF", "#A52A2A", "#7FFF00", "#7FFFD4"], 
+                    data: [2648452, 2330295, 1638281, 487155, 1446788]
+                }
+            ]
+        }, 
+        options: {
+            title: {
+                display: true, 
+                text: 'NYC 2020 Population By Bourough'
+            } 
+        }
+    }); 
+
+    </script>
+</html>
