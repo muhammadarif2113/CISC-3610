@@ -1,6 +1,6 @@
 var canvas = document.querySelector('canvas'); 
-canvas.width = 800px; //window.innerWidth; 
-canvas.height = 700 px; //window.innerHeight; //this will allow canvas to fill the screen
+canvas.width = window.innerWidth; 
+canvas.height =window.innerHeight; //this will allow canvas to fill the screen
 
 var c = canvas.getContext('2d'); //so we are able to draw 
 c.font = '50px brush script mt'; 
