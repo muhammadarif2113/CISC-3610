@@ -1,0 +1,100 @@
+<html>
+    <title>
+        Audio Lab
+    </title>
+    <head><h1><center> Click image for sound</center></h1></head>
+    <style> 
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+        </style>
+    <body>
+
+    <div class="cat">
+        <img src="/home/moe/Desktop/Multimedia/Audio Lab/cat.jpg"  value="PLAY"  onclick="playAudio1()">
+        <audio id="audio1">
+            <source src="/home/moe/Desktop/Multimedia/Audio Lab/cat.mp3" type="audio/ogg">
+          </audio>
+    </div>
+    <div id="dog">
+        <img src="/home/moe/Desktop/Multimedia/Audio Lab/dog.png" value="PLAY"  onclick="playAudio2()">
+        <audio id="audio2">
+            <source src="/home/moe/Desktop/Multimedia/Audio Lab/dog.mp3" type="audio/ogg">
+          </audio>
+    </div>
+    <div id="gun">
+        <img src="/home/moe/Desktop/Multimedia/Audio Lab/trumpet.jpeg" value="PLAY"  onclick="playAudio3()">
+        <audio id="audio3">
+            <source src="/home/moe/Desktop/Multimedia/Audio Lab/trumpet.mp3" type="audio/ogg">
+          </audio>
+    </div>
+    <div id="trumpet">
+        <img src="/home/moe/Desktop/Multimedia/Audio Lab/gun2.png" value="PLAY"  onclick="playAudio4()">
+        <audio id="audio4">
+            <source src="/home/moe/Desktop/Multimedia/Audio Lab/gun.mp3" type="audio/ogg">
+          </audio>
+        
+    </div>
+    <div class="police">
+        <img src="/home/moe/Desktop/Multimedia/Audio Lab/policee.jpg" value="PLAY"  onclick="playAudio5()">
+        <audio id="audio5">
+            <source src="/home/moe/Desktop/Multimedia/Audio Lab/Police.mp3" type="audio/ogg">
+          </audio>
+    </div>
+
+    <script>
+    var x = document.getElementById("audio1"); 
+    var y = document.getElementById("audio2");
+    var z = document.getElementById("audio3");
+    var a = document.getElementById("audio4");
+    var b = document.getElementById("audio5"); 
+    
+    function playAudio1() { 
+      x.play(); 
+    }
+    
+    function playAudio2() { 
+      y.play(); 
+    } 
+    
+    function playAudio3() { 
+      z.play(); 
+    }
+    
+    function playAudio4() { 
+      a.play(); 
+    }
+    
+    function playAudio5() { 
+      b.play(); 
+    }
+    
+    function pauseAudio() { 
+      x.pause(); 
+    } 
+    
+    function pauseAudio2() { 
+      y.pause(); 
+    }
+    
+    function pauseAudio3() { 
+      z.pause(); 
+    }
+    
+    function pauseAudio4() { 
+      a.pause(); 
+    }
+    
+    function pauseAudio5() { 
+      b.pause(); 
+    }
+    </script>
+ 
+    </body>
+    
+    </html>
