@@ -30,14 +30,14 @@ var scoreText;
 var game = new Phaser.Game(config);
 
 function preload (){
-  this.load.image('volcano', 'assets/volcano.jpeg');
-  this.load.image('ground', 'assets/platform.jpg');
-  this.load.image('star', 'assets/diamond.png');
-  this.load.image('bomb', 'assets/dragon.png');
-  this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
-  this.load.audio('music', 'assets/music.mp3'); 
-  this.load.audio('ow', 'assets/ouch.mp3');
-  this.load.audio('coin', 'assets/coin.mp3');
+  this.load.image('volcano', 'volcano.jpeg');
+  this.load.image('ground', 'platform.jpg');
+  this.load.image('star', 'diamond.png');
+  this.load.image('bomb', 'dragon.png');
+  this.load.spritesheet('dude', 'dude.png', { frameWidth: 32, frameHeight: 48 });
+  this.load.audio('music', 'music.mp3'); 
+  this.load.audio('ow', 'ouch.mp3');
+  this.load.audio('coin', 'coin.mp3');
 }
 
 function create (){
