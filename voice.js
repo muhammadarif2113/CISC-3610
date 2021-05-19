@@ -1,59 +1,65 @@
+const talk = document.getElementById('talk');
 const objects = document.getElementById('objects');
 const ctx = objects.getContext('2d');
-const talk = document.getElementById('talk');
+let temp = document.getElementById('record');
+
 
 var box = new Image();
-var mask = new Image();
-var money = new Image();
-var pizza = new Image();
-var shoes = new Image();
-var unknown = new Image();
-var help = new Image();
-
 box.src = 'box.png';
+
+var mask = new Image();
 mask.src = 'mask.png';
+
+var money = new Image();
 money.src = 'money.png';
+
+var pizza = new Image();
 pizza.src = 'pizza.png';
+
+var shoes = new Image();
 shoes.src = 'shoes.png';
+
+var unknown = new Image();
 unknown.src = 'unknown.png';
+
+var help = new Image();
 help.src = 'help.jpg';
 
-function drawtext(text, font, color, x, y){
+
+function getText(text, font, x, y){
   ctx.font = font;
-  ctx.fillStyle= color;
   ctx.fillText(text, x, y);
 }
 
-function drawDefault(){ 
+function draw(){ 
   ctx.clearRect(0, 0, objects.width, objects.width);
-  drawtext('Box','30px Century Gothic','black',100, 100);
-  drawtext('Money','30px Century Gothic','black',100, 130);
-  drawtext('Mask','30px Century Gothic','black',100, 160);
-  drawtext('Pizza','30px Century Gothic','black',100, 190);
-  drawtext('Shoes','30px Century Gothic','black',100, 220);
+  getText('Box','50px Times New Roman', 100, 100);
+  getText('Money','50px Times New Roman',210, 100);
+  getText('Mask','50px Times New Roman',380, 100);
+  getText('Pizza','50px Times New Roman',520, 100);
+  getText('Shoes','50px Times New Roman',650, 100);
 }
 
 function speak(text, callback) {
-  var u = new SpeechSynthesisUtterance();
-  u.text = text;
-  u.lang = 'en-US';
+  var req = new SpeechSynthesisUtterance();
+  req.text = text;
+  req.lang = 'en-US';
 
-  u.onend = function () {
+  req.onend = function () {
       if (callback) {
           callback();
       }
   };
-
-  u.onerror = function (e) {
+  req.onerror = function (e) {
       if (callback) {
           callback(e);
       }
   };
 
-  speechSynthesis.speak(u);
+  speechSynthesis.speak(req);
 }
 
-function findFruit(text){
+function getObject(text){
   if(text.includes('box')){
     ctx.clearRect(0, 0, objects.width, objects.width);
     ctx.drawImage(box, 100, 100);
@@ -69,6 +75,9 @@ function findFruit(text){
   } else if(text.includes('shoes')){
     ctx.clearRect(0, 0, objects.width, objects.width);
     ctx.drawImage(shoes, 50, 40);
+  } else if(text.includes('about')){
+    ctx.clearRect(0, 0, objects.width, objects.width);
+    speak('Moe Arif, 2021');
   } else if(text.includes('help')){
     ctx.clearRect(0, 0, objects.width, objects.width);
     ctx.drawImage(help, 50, 40);
@@ -83,14 +92,12 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
 recognition.interimResults = true;
 
-let p = document.getElementById('page_transcript');
-
-drawDefault();
+draw();
 
 talk.onclick = function(){
 
   if(talk.innerText === 'Speak') {
-    drawDefault();
+    draw();
     let phrase ='';
     console.clear();
     talk.innerText = 'Stop';
@@ -105,7 +112,7 @@ talk.onclick = function(){
       .join('');
     
       phrase = transcript.toLowerCase();
-      p.textContent = phrase;
+      temp.textContent = phrase;
       console.log(phrase);
     });
   }
@@ -117,7 +124,7 @@ talk.onclick = function(){
 
 recognition.addEventListener('end', e=>{
   talk.innerText = 'Speak'; 
-  speak(p.textContent);
-  findFruit(p.textContent);
+  speak(temp.textContent);
+  getObject(temp.textContent);
   recognition.abort();
 });
