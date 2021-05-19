@@ -192,7 +192,7 @@ function collectDiamond (player, star){
 }
 
 function hitDragon (player, bomb){
-  this.lives = this.lives - 1; 
+  lives = lives - 1; 
   livesLabel.text = "Lives: " + lives;
   this.ow_sound.play(); 
 
