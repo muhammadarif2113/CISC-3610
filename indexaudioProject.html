@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audio Project</title>
+</head>
+
+  <body>
+    <div class="container">
+      <div> <u>Instructions</u>
+        <ul>
+          <li> Say a name of the object to see the object on the screen</li>
+          <li> Say "Help" to tell them "Say a name of the object on the screen. Say about, to hear about the program." This will use Text to Speech to play back the help instructions.</li>
+          <li> Say "About" to hear your name and Copyright with this year. This will use Text to Speech to play back the help instructions.</li>
+        </ul>
+      </div>
+      <div class="col my-col">
+        <canvas id="objects" width="800" height="600"></canvas>
+        <p><button id="talk" type="button">Speak</button></p>
+        <p id="page_transcript"></p>
+      </div>
+      <script src="voice.js"></script>
+    </div>
+  </body>
+</html>
