@@ -199,7 +199,7 @@ function hitDragon (player, bomb){
   player.setTint(0xff0000);
 
   if (lives ==0){
-
+    this.music.stop(); 
     player.anims.play('turn');
     this.physics.pause();
     gameOver = true;
