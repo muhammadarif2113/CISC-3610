@@ -163,6 +163,7 @@ function update (){
       this.scene.restart(); 
     }
     if (this.quit.isDown){
+      this.music.stop(); 
       this.scene.stop(); 
     }
 }
