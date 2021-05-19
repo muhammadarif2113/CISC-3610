@@ -37,6 +37,9 @@
 <script>
   //  var one = document.getElementById("titleName").value; 
   //  var two = document.getElementById("textarea1").value; 
+    var clear = document.getElementById("clear");
+    var titleName = docment.getElementById("titleName"); 
+    var textarea1 = document.getElementById("textarea1"); 
 
     function doFirst(){ 
         var button = document.getElementById("button"); 
@@ -50,9 +53,14 @@
      //   display(one); 
     }
         
-       function clearit(){
-            window.localStorage.clear(); 
-       }
+//        function clearit(){
+//             window.localStorage.clear(); 
+//        }
+    clear.onclick = function(){
+  titleName.value = "";
+  textarea1.value = "";
+  setValue();
+}
 
 
     function display(two){
