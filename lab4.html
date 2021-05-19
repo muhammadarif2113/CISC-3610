@@ -29,7 +29,7 @@
         <h2><center> Title: <input type="text" id = "titleName" name="titleName" maxlength="40" required></center></h2> 
         <center><textarea id ="textarea1" name="textarea1" rows="10" columns="80" oninput="saveit()"> </textarea> </center>
     <!----    <input type = "button" id="button" onclick ="saveit()" value = "Save"> -->
-        <input type ="button" id = "clear" onclick="clearit()" value="Clear"/> 
+        <input type ="button" id = "clear" value="Clear"/> 
     </form> 
 </div>
 </body>
@@ -38,7 +38,7 @@
   //  var one = document.getElementById("titleName").value; 
   //  var two = document.getElementById("textarea1").value; 
     var clear = document.getElementById("clear");
-    var titleName = docment.getElementById("titleName"); 
+    var titleName = document.getElementById("titleName"); 
     var textarea1 = document.getElementById("textarea1"); 
 
     function doFirst(){ 
