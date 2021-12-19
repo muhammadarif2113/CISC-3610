@@ -1,3 +1,4 @@
-# CISC-3610-
-Assignments and Labs  
+Multimedia Projects  
+https://muhammadarif2113.github.io/CISC-3610/
 Please go to other branch
+
